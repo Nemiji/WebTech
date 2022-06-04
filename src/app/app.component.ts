@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap'
+import { DetailedComponent } from './detailed/detailed.component';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +15,13 @@ export class AppComponent implements OnInit {
   showNavigationArrows = true;
   showNavigationIndicators = true;
 
+  constructor(private router: Router){}
   
+  gotoDetailed(){
+    this.router.navigate(['detailed']);
+  }
 
+//these functions are not used...but good as template for later
   @ViewChild('ngcarousel', { static: true }) ngCarousel!: NgbCarousel;
   ngOnInit() {}
   // Move to specific slide
