@@ -20,6 +20,8 @@ import { DetailedComponent } from './detailed/detailed.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+
+    //define roots and associated components
     RouterModule.forRoot([
     { path: 'detailed', component: DetailedComponent},
     { path: '', component: CarouselComponent}

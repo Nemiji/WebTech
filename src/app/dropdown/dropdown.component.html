@@ -3,9 +3,13 @@
       <div ngbDropdown class="d-inline-block">
         <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Decide what you want to see</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem>Newest</button>
-          <button ngbDropdownItem>Most relevant</button>
-          <button ngbDropdownItem>Random</button>
+          <!--
+            click sends string to parent (carousel)
+          -->
+          <button ngbDropdownItem (click)="_sendDataToParent('Newest')">Newest</button>
+          <button ngbDropdownItem (click)="_sendDataToParent('Relevant')">Relevant</button>
+          <button ngbDropdownItem (click)="_sendDataToParent('Random')">Random</button>
+          <button ngbDropdownItem (click)="_sendDataToParent('Default')">Default</button>
         </div>
       </div>
     </div>

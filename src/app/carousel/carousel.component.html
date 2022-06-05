@@ -7,10 +7,8 @@
       <img (click)="gotoDetailed()" [src]="images[0]" alt="Slide 1">
     </div>
     <div class = "carousel-caption">
-    <h3>
-      Title from API
-    </h3>
-    <p>Description and Author from API</p>
+      <h3>{{currentMode[0][1]}}</h3>
+      <p>{{currentMode[0][0]}} - {{currentMode[0][2]}}</p>
     </div>
   </ng-template>
   <ng-template ngbSlide id="two">
@@ -18,8 +16,8 @@
       <img (click)="gotoDetailed()" [src]="images[1]" alt="Slide 2">
     </div>
     <div class = "carousel-caption">
-      <h3>Title from API</h3>
-      <p>Description and Author from API</p>
+      <h3>{{currentMode[1][1]}}</h3>
+      <p>{{currentMode[1][0]}} - {{currentMode[1][2]}}</p>
       </div>
   </ng-template>
   <ng-template ngbSlide id="three">
@@ -27,8 +25,8 @@
       <img (click)="gotoDetailed()" [src]="images[2]" alt="Slide 3">
     </div>
     <div class = "carousel-caption">
-      <h3>Title from API</h3>
-      <p>Description and Author from API</p>
+      <h3>{{currentMode[2][1]}}</h3>
+      <p>{{currentMode[2][0]}} - {{currentMode[2][2]}}</p>
       </div>
   </ng-template>
   <ng-template ngbSlide id="four">
@@ -36,9 +34,13 @@
       <img (click)="gotoDetailed()" [src]="images[3]" alt="Slide 4">
     </div>
     <div class = "carousel-caption">
-      <h3>Title from API</h3>
-      <p>Description and Author from API</p>
+      <h3>{{currentMode[3][1]}}</h3>
+      <p>{{currentMode[3][0]}} - {{currentMode[3][2]}}</p>
       </div>
   </ng-template>
 </ngb-carousel>
-<ngbd-dropdown-basic></ngbd-dropdown-basic>
+<!--
+  sendDataToParent invokes eventFromChild with emitted params in carousel component
+-->
+<ngbd-dropdown-basic (sendDataToParent)="eventFromChild($event)">
+</ngbd-dropdown-basic>
