@@ -11,8 +11,7 @@ import { ApiService } from './api.service';
 })
 export class AppComponent implements OnInit {
   title: any;
-  bibItem:any;
-
+  
   constructor(private api:ApiService) {}
 
   ngOnInit() {}

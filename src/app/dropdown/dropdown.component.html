@@ -3,9 +3,9 @@
       <div ngbDropdown class="d-inline-block">
         <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Decide what you want to see</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem>Newest</button>
-          <button ngbDropdownItem>Most relevant</button>
-          <button ngbDropdownItem>Random</button>
+          <button ngbDropdownItem>Newest (click)="loadNewest()"</button>
+          <button ngbDropdownItem>Most relevant (click)="loadMostRelevant()"</button>
+          <button ngbDropdownItem>Random (click)="loadRandom()"</button>
         </div>
       </div>
     </div>

@@ -12,4 +12,13 @@ export class ApiService {
   }
   //Needs a function for avery item we want to call or we make a general
   //function so that the endpoint is given as parameter
+
+  //Data is transformed in the wanted output in the get functions
+
+  getNewestItems() {}
+
+  getMostRelevantItems() {}
+
+  getRandomItems() {}
+
 }
