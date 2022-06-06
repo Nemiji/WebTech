@@ -1,3 +1,4 @@
+
 <ngb-carousel #ngcarousel
   [showNavigationArrows]="true" 
   [showNavigationIndicators]="true"
@@ -42,5 +43,8 @@
 <!--
   sendDataToParent invokes eventFromChild with emitted params in carousel component
 -->
+<hr size = "1">
+
 <ngbd-dropdown-basic (sendDataToParent)="eventFromChild($event)">
 </ngbd-dropdown-basic>
+

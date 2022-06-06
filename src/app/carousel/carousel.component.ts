@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap'
 
+
 @Component({
   selector: 'carousel',
   templateUrl: './carousel.component.html',
@@ -10,6 +11,7 @@ import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap'
 export class CarouselComponent implements OnInit {
 
   //to be replaced
+  
 
   sampleDataStandard = [
     ["Wolfgang Kümmel", "On Web Applications", "This paper deals with several aspects of modern web-design"],
@@ -40,23 +42,29 @@ export class CarouselComponent implements OnInit {
     ["default4", "default default default", "default and default or default"]
   ]  
   //sample img for slides
-  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  images = [321, 144, 1021, 1077].map((n) => `https://picsum.photos/id/${n}/1920/400`);
 
   showNavigationArrows = true;
   showNavigationIndicators = true;
   title: any;
-
+  currentMode:any;
   //navigation shit
-  constructor(private router: Router){}
+  constructor(private router: Router){
+    this.currentMode=this.sampleDataStandard;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+  }
 
   //goto /detailed and show detailed.component.html
   gotoDetailed(slide:any){
+    let currentUrl = this.router.url;
+    this.router.navigate([currentUrl]);
     this.router.navigate(['detailed'],{state: {data:{caption:this.currentMode[slide]}}});
+    
     
   }
 
-  // save button output of dropdown
-  currentMode:any = this.sampleDataStandard;
+
 
 //handle child event and "switch" dropdown output for wished data
   eventFromChild(data:string){

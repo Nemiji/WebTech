@@ -1,11 +1,10 @@
+
 <div class="row">
     <div class="col">
       <div ngbDropdown class="d-inline-block">
-        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Decide what you want to see</button>
+        <button type="button" class="btn btn-secondary" id="dropdownBasic1" ngbDropdownToggle>Personalize content</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <!--
-            click sends string to parent (carousel)
-          -->
+          
           <button ngbDropdownItem (click)="_sendDataToParent('Newest')">Newest</button>
           <button ngbDropdownItem (click)="_sendDataToParent('Relevant')">Relevant</button>
           <button ngbDropdownItem (click)="_sendDataToParent('Random')">Random</button>
@@ -13,3 +12,4 @@
         </div>
       </div>
     </div>
+  

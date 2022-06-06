@@ -23,8 +23,10 @@ import { DetailedComponent } from './detailed/detailed.component';
 
     //define roots and associated components
     RouterModule.forRoot([
-    { path: 'detailed', component: DetailedComponent},
-    { path: '', component: CarouselComponent}
+    { path: '', children:[{
+      path: 'detailed', component: DetailedComponent
+    }]},
+    
     ])
   ],
   providers: [],

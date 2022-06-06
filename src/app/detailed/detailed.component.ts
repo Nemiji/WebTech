@@ -8,12 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class DetailedComponent implements OnInit {
 
   slide:any;
-
   constructor() {
-    this.slide = history.state.data;
-    console.log(history.state.data[0])
+    this.slide=history.state.data;
    }
-
+   
   ngOnInit(): void {
     
   }
