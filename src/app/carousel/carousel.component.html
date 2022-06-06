@@ -4,7 +4,7 @@
 >
   <ng-template ngbSlide id="one">
     <div class="picsum-img-wrapper">
-      <img (click)="gotoDetailed()" [src]="images[0]" alt="Slide 1">
+      <img (click)="gotoDetailed(0)" [src]="images[0]" alt="Slide 1">
     </div>
     <div class = "carousel-caption">
       <h3>{{currentMode[0][1]}}</h3>
@@ -13,7 +13,7 @@
   </ng-template>
   <ng-template ngbSlide id="two">
     <div class="picsum-img-wrapper">
-      <img (click)="gotoDetailed()" [src]="images[1]" alt="Slide 2">
+      <img (click)="gotoDetailed(1)" [src]="images[1]" alt="Slide 2">
     </div>
     <div class = "carousel-caption">
       <h3>{{currentMode[1][1]}}</h3>
@@ -22,7 +22,7 @@
   </ng-template>
   <ng-template ngbSlide id="three">
     <div class="picsum-img-wrapper">
-      <img (click)="gotoDetailed()" [src]="images[2]" alt="Slide 3">
+      <img (click)="gotoDetailed(2)" [src]="images[2]" alt="Slide 3">
     </div>
     <div class = "carousel-caption">
       <h3>{{currentMode[2][1]}}</h3>
@@ -31,7 +31,7 @@
   </ng-template>
   <ng-template ngbSlide id="four">
     <div class="picsum-img-wrapper">
-      <img (click)="gotoDetailed()" [src]="images[3]" alt="Slide 4">
+      <img (click)="gotoDetailed(3)" [src]="images[3]" alt="Slide 4">
     </div>
     <div class = "carousel-caption">
       <h3>{{currentMode[3][1]}}</h3>

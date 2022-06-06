@@ -11,7 +11,7 @@ export class CarouselComponent implements OnInit {
 
   //to be replaced
 
-  sampleDataNewest = [
+  sampleDataStandard = [
     ["Wolfgang Kümmel", "On Web Applications", "This paper deals with several aspects of modern web-design"],
     ["Achim Gansgenau", "How quantum computers may change the world", "This Paper opens up different views on quantum computers"],
     ["Günther Schroff", "Eine Gesellschaft im Wandel", "Dieses Werk handelt über die Gesellschaft und so"],
@@ -33,7 +33,7 @@ export class CarouselComponent implements OnInit {
   ]
 
 
-  sampleDataStandard = [
+  sampleDataNewest = [
     ["default1", "default default default", "default and default or default"],
     ["default2", "default default default", "default and default or default"],
     ["default3", "default default default", "default and default or default"],
@@ -50,8 +50,9 @@ export class CarouselComponent implements OnInit {
   constructor(private router: Router){}
 
   //goto /detailed and show detailed.component.html
-  gotoDetailed(){
-    this.router.navigate(['detailed']);
+  gotoDetailed(slide:any){
+    this.router.navigate(['detailed'],{state: {data:{caption:this.currentMode[slide]}}});
+    
   }
 
   // save button output of dropdown

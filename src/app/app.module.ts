@@ -28,6 +28,6 @@ import { DetailedComponent } from './detailed/detailed.component';
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent, NgbdDropdownBasic, CarouselComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
