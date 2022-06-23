@@ -9,7 +9,7 @@
     </div>
     <div class = "carousel-caption">
       <h3>{{ bibItem1.name }}</h3>
-      <p>{{ bibItem1.metadata["dc.contributor.author"][0].value }} - {{currentMode[0][2]}}</p>
+      <p>{{ bibItem1.metadata["dc.contributor.author"][0].value }} - {{bibItem1.metadata["dc.date.issued"][0].value }}</p>
     </div>
   </ng-template>
   <ng-template ngbSlide id="two">
@@ -18,7 +18,7 @@
     </div>
     <div class = "carousel-caption">
       <h3>{{ bibItem2.name }}</h3>
-      <p>{{currentMode[1][0]}} - {{currentMode[1][2]}}</p>
+      <p>{{bibItem2.metadata["dc.contributor.author"][0].value}} - {{bibItem2.metadata["dc.date.issued"][0].value}}</p>
       </div>
   </ng-template>
   <ng-template ngbSlide id="three">
@@ -26,8 +26,8 @@
       <img (click)="gotoDetailed(2)" [src]="images[2]" alt="Slide 3">
     </div>
     <div class = "carousel-caption">
-      <h3>{{currentMode[2][1]}}</h3>
-      <p>{{currentMode[2][0]}} - {{currentMode[2][2]}}</p>
+      <h3>{{ bibItem3.name }}</h3>
+      <p>{{ bibItem3.metadata["dc.contributor.author"][0].value }} - {{ bibItem3.metadata["dc.date.issued"][0].value }}</p>
       </div>
   </ng-template>
   <ng-template ngbSlide id="four">
@@ -35,8 +35,8 @@
       <img (click)="gotoDetailed(3)" [src]="images[3]" alt="Slide 4">
     </div>
     <div class = "carousel-caption">
-      <h3>{{currentMode[3][1]}}</h3>
-      <p>{{currentMode[3][0]}} - {{currentMode[3][2]}}</p>
+      <h3>{{ bibItem4.name }}</h3>
+      <p>{{ bibItem4.metadata["dc.contributor.author"][0].value }} - {{ bibItem1.metadata["dc.date.issued"][0].value }}</p>
       </div>
   </ng-template>
 </ngb-carousel>

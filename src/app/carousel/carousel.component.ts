@@ -94,7 +94,14 @@ export class CarouselComponent implements OnInit {
       //this.currentMode = this.sampleDataNewest;
     }
     if (data=='Relevant'){
-      this.currentMode = this.sampleDataRelevant;
+      this.api.getMostRelevantItems().subscribe((data)=>{
+        this.bibItems = data;
+        this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
+        this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
+        this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
+        this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
+      })
+      //this.currentMode = this.sampleDataRelevant;
     }
     if (data=='Random'){
       this.currentMode = this.sampleDataRandom;
@@ -111,8 +118,8 @@ export class CarouselComponent implements OnInit {
   ngOnInit() {
     this.api.getRandomItems().subscribe((data)=>{
       this.bibItems = data;
-      this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
-      this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
+      this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
+      this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
       this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
       this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
       this.currentMode = [this.bibItem1, this.bibItem2, this.bibItem3, this.bibItem4];

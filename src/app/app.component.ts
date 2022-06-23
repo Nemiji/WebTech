@@ -24,12 +24,11 @@ export class AppComponent implements OnInit {
     
     this.api.getRandomItems().subscribe((data)=>{
       this.bibItems = data;
-      this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
-      this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
+      this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
+      this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
       this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
       this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
       this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
-      console.log(this.bibItem1);
     })
 
     
