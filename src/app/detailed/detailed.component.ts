@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detailed.component.css']
 })
 export class DetailedComponent implements OnInit {
-
-  slide:any;
+  
+  slideNumber:any;
+  book:any;
   constructor() {
-    this.slide=history.state.data;
+    this.book=history.state.data.caption;
+    
+    console.log(this.book);
+    
+  
    }
    
   ngOnInit(): void {

@@ -54,6 +54,8 @@ export class CarouselComponent implements OnInit {
   showNavigationIndicators = true;
   title: any;
   currentMode:any;
+  currentModeTransport:any;
+  papers:any;
   //navigation shit
   constructor(private router: Router, private api:ApiService){
     this.currentMode=this.sampleDataStandard;
@@ -65,7 +67,10 @@ export class CarouselComponent implements OnInit {
   gotoDetailed(slide:any){
     let currentUrl = this.router.url;
     this.router.navigate([currentUrl]);
-    this.router.navigate(['detailed'],{state: {data:{caption:this.currentMode[slide]}}});
+    this.currentModeTransport = [this.currentMode[slide].name,this.currentMode[slide].metadata["dc.contributor.author"][0].value];
+    //this.router.navigate(['detailed'],{state: {data:{caption:this.currentMode[slide]}}});
+    this.router.navigate(['detailed'],{state: {data:{caption:this.currentModeTransport}}});
+    console.log(this.currentMode[slide].name);
     
     
   }
@@ -81,8 +86,10 @@ export class CarouselComponent implements OnInit {
         this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
         this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
         this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
-        this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
-        console.warn(this.bibItem1);
+        //console.warn(this.bibItem1);
+        this.currentMode = [this.bibItem1, this.bibItem2, this.bibItem3, this.bibItem4];
+      
+        
       })
       //this.currentMode = this.sampleDataNewest;
     }
@@ -108,7 +115,7 @@ export class CarouselComponent implements OnInit {
       this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
       this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
       this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
-      this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
+      this.currentMode = [this.bibItem1, this.bibItem2, this.bibItem3, this.bibItem4];
       console.warn(this.bibItem1);
     })
   }
