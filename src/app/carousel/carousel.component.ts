@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap'
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -9,7 +10,12 @@ import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap'
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-
+  bibItems:any;
+  bibItem1:any;
+  bibItem2:any;
+  bibItem3:any;
+  bibItem4:any;
+  bibItem5:any;
   //to be replaced
   
 
@@ -49,7 +55,7 @@ export class CarouselComponent implements OnInit {
   title: any;
   currentMode:any;
   //navigation shit
-  constructor(private router: Router){
+  constructor(private router: Router, private api:ApiService){
     this.currentMode=this.sampleDataStandard;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
@@ -69,7 +75,16 @@ export class CarouselComponent implements OnInit {
 //handle child event and "switch" dropdown output for wished data
   eventFromChild(data:string){
     if (data=='Newest'){
-      this.currentMode = this.sampleDataNewest;
+      this.api.getNewestItems().subscribe((data)=>{
+        this.bibItems = data;
+        this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
+        this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
+        this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
+        this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
+        this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
+        console.warn(this.bibItem1);
+      })
+      //this.currentMode = this.sampleDataNewest;
     }
     if (data=='Relevant'){
       this.currentMode = this.sampleDataRelevant;
@@ -83,9 +98,20 @@ export class CarouselComponent implements OnInit {
   }
 
 
+
 //these functions are not used...but good as template for later
   @ViewChild('ngcarousel', { static: true }) ngCarousel!: NgbCarousel;
-  ngOnInit() {}
+  ngOnInit() {
+    this.api.getRandomItems().subscribe((data)=>{
+      this.bibItems = data;
+      this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
+      this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
+      this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
+      this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
+      this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
+      console.warn(this.bibItem1);
+    })
+  }
   // Move to specific slide
   navigateToSlide(item: any) {
     this.ngCarousel.select(item);
@@ -107,6 +133,7 @@ export class CarouselComponent implements OnInit {
   restartCarousel() {
     this.ngCarousel.cycle();
 }
+
 
 
 }
