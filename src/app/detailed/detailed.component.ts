@@ -11,9 +11,7 @@ export class DetailedComponent implements OnInit {
   book:any;
   constructor() {
     this.book=history.state.data.caption;
-    
-    console.log(this.book);
-    
+
   
    }
    

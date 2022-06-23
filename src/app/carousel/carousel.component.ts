@@ -70,7 +70,7 @@ export class CarouselComponent implements OnInit {
     this.currentModeTransport = [this.currentMode[slide].name,this.currentMode[slide].metadata["dc.contributor.author"][0].value];
     //this.router.navigate(['detailed'],{state: {data:{caption:this.currentMode[slide]}}});
     this.router.navigate(['detailed'],{state: {data:{caption:this.currentModeTransport}}});
-    console.log(this.currentMode[slide].name);
+    
     
     
   }
@@ -100,6 +100,7 @@ export class CarouselComponent implements OnInit {
         this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
         this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
         this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
+        this.currentMode = [this.bibItem1, this.bibItem2, this.bibItem3, this.bibItem4];
       })
       //this.currentMode = this.sampleDataRelevant;
     }
