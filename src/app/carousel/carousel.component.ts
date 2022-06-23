@@ -105,10 +105,26 @@ export class CarouselComponent implements OnInit {
       //this.currentMode = this.sampleDataRelevant;
     }
     if (data=='Random'){
-      this.currentMode = this.sampleDataRandom;
+      this.api.getRandomItems().subscribe((data)=>{
+        this.bibItems = data;
+        this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[Math.floor(Math.random() * (8))]._embedded.indexableObject;
+        this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[Math.floor(Math.random() * (8))]._embedded.indexableObject;
+        this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[Math.floor(Math.random() * (8))]._embedded.indexableObject;
+        this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[Math.floor(Math.random() * (8))]._embedded.indexableObject;
+        this.currentMode = [this.bibItem1, this.bibItem2, this.bibItem3, this.bibItem4];
+      })
+      //this.currentMode = this.sampleDataRandom;
     }
     if (data=='Default'){
-      this.currentMode = this.sampleDataStandard;
+      this.api.getRandomItems().subscribe((data)=>{
+        this.bibItems = data;
+        this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
+        this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
+        this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
+        this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
+        this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
+      })
+      //this.currentMode = this.sampleDataStandard;
     }
   }
 
