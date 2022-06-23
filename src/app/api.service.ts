@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { range } from 'rxjs';
  
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
   constructor(private http:HttpClient) { }
-  getBibItems() {
-    return this.http.get('http://webtech.informatik.unibw-muenchen.de:8080/server/items')
+
+  getNewestItems() {
+    return this.http.get('https://webtech.informatik.unibw-muenchen.de/server/api/discover/search/objects?configuration=default&sort=dc.date.issued,desc&size=5');
   }
-  //Needs a function for avery item we want to call or we make a general
-  //function so that the endpoint is given as parameter
 
-  //Data is transformed in the wanted output in the get functions
+  getMostRelevantItems() {
+    return this.http.get('https://webtech.informatik.unibw-muenchen.de/server/api/discover/search/objects')
 
-  getNewestItems() {}
+  }
 
-  getMostRelevantItems() {}
+  getRandomItems() {
+    return this.http.get('https://webtech.informatik.unibw-muenchen.de/server/api/discover/search/objects')
 
-  getRandomItems() {}
+  }
 
 }
