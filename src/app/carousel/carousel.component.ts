@@ -55,7 +55,6 @@ export class CarouselComponent implements OnInit {
   title: any;
   currentMode:any;
   currentModeTransport:any;
-  papers:any;
   //navigation shit
   constructor(private router: Router, private api:ApiService){
     this.currentMode=this.sampleDataStandard;
@@ -67,7 +66,8 @@ export class CarouselComponent implements OnInit {
   gotoDetailed(slide:any){
     let currentUrl = this.router.url;
     this.router.navigate([currentUrl]);
-    this.currentModeTransport = [this.currentMode[slide].name,this.currentMode[slide].metadata["dc.contributor.author"][0].value];
+    this.currentModeTransport = [this.currentMode[slide].name,this.currentMode[slide].metadata["dc.contributor.author"][0].value,
+    this.currentMode[slide].metadata["dc.description.abstract"][0].value, this.currentMode[slide].metadata["dc.date.issued"][0].value];
     //this.router.navigate(['detailed'],{state: {data:{caption:this.currentMode[slide]}}});
     this.router.navigate(['detailed'],{state: {data:{caption:this.currentModeTransport}}});
     

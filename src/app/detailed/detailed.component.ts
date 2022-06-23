@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailedComponent implements OnInit {
   
-  slideNumber:any;
   book:any;
   constructor() {
     this.book=history.state.data.caption;

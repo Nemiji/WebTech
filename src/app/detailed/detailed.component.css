@@ -1,10 +1,17 @@
 body {
     text-align: center;
-    
+    hyphens: auto; 
+    text-align: justify;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    margin-top: 30px;
 }
 h1{
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: 23vw;
+    margin-right: 23vw;
     margin-top: 120px;
     text-align: center;
+}
+.rechtsbuendig {
+    text-align: right;
 }
