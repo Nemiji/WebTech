@@ -123,6 +123,7 @@ export class CarouselComponent implements OnInit {
         this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
         this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
         this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
+        this.currentMode = [this.bibItem1, this.bibItem2, this.bibItem3, this.bibItem4];
       })
       //this.currentMode = this.sampleDataStandard;
     }
