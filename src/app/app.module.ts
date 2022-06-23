@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdDropdownBasic } from './dropdown/dropdown.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { DetailedComponent } from './detailed/detailed.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,8 +20,7 @@ import { DetailedComponent } from './detailed/detailed.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-
-    //define roots and associated components
+    HttpClientModule,
     RouterModule.forRoot([
     { path: '', children:[{
       path: 'detailed', component: DetailedComponent

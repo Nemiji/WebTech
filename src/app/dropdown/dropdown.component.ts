@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'ngbd-dropdown-basic',
@@ -13,7 +13,7 @@ export class NgbdDropdownBasic implements OnInit {
   //event stuff
   @Output() sendDataToParent = new EventEmitter<string>();
   
-  constructor() { }
+  constructor(private api:ApiService) { }
 
   ngOnInit(): void {
   }
