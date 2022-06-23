@@ -13,13 +13,11 @@ export class ApiService {
   }
 
   getMostRelevantItems() {
-    return this.http.get('https://webtech.informatik.unibw-muenchen.de/server/api/discover/search/objects')
-
+    return this.http.get('https://webtech.informatik.unibw-muenchen.de/server/api/discover/search/objects?configuration=default&sort=dc.date.accessioned,desc&size=4');
   }
 
   getRandomItems() {
-    return this.http.get('https://webtech.informatik.unibw-muenchen.de/server/api/discover/search/objects')
-
+    return this.http.get('https://webtech.informatik.unibw-muenchen.de/server/api/discover/search/objects');
   }
 
 }
