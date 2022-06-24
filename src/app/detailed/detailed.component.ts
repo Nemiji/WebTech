@@ -10,7 +10,12 @@ export class DetailedComponent implements OnInit {
   book:any;
   constructor() {
     //retrieve data from route ''
+    try{
     this.book=history.state.data.caption;
+    }
+    catch{
+      this.book[3] = "";
+    }
 
   
    }
