@@ -21,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    //these are the possible endpoints
     RouterModule.forRoot([
     { path: '', children:[{
       path: 'detailed', component: DetailedComponent
