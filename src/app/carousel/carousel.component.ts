@@ -15,6 +15,8 @@ export class CarouselComponent implements OnInit {
   bibItem2:any;
   bibItem3:any;
   bibItem4:any;
+  bibItem5:any;
+  bibItem6:any;
   
   
   
@@ -79,7 +81,9 @@ depending on param, api queries are sent
         this.bibItem2 = this.bibItems._embedded.searchResult._embedded.objects[1]._embedded.indexableObject;
         this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
         this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
-        this.currentMode = [this.bibItem1, this.bibItem2, this.bibItem3, this.bibItem4];
+        this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
+        this.bibItem6 = this.bibItems._embedded.searchResult._embedded.objects[5]._embedded.indexableObject;
+        this.currentMode = [this.bibItem3, this.bibItem4, this.bibItem5, this.bibItem6];
       })
       
     }
