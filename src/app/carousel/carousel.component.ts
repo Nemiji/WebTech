@@ -61,6 +61,7 @@ depending on param, api queries are sent
   eventFromChild(data:string){
 
     if (data=='Newest'){
+      //gets last published objects
       this.api.getNewestItems().subscribe((data)=>{
         this.bibItems = data;
         this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
@@ -75,6 +76,7 @@ depending on param, api queries are sent
       
     }
     if (data=='Relevant'){
+      //gets last accessed objects
       this.api.getMostRelevantItems().subscribe((data)=>{
         this.bibItems = data;
         this.bibItem3 = this.bibItems._embedded.searchResult._embedded.objects[2]._embedded.indexableObject;
@@ -86,6 +88,7 @@ depending on param, api queries are sent
       
     }
     if (data=='Random'){
+      //selects random objects from the first 9
       this.api.getRandomItems().subscribe((data)=>{
         this.bibItems = data;
         this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[Math.floor(Math.random() * (8))]._embedded.indexableObject;
@@ -97,6 +100,7 @@ depending on param, api queries are sent
       
     }
     if (data=='Default'){
+      //same as when first opening the carrousel
       this.api.getRandomItems().subscribe((data)=>{
         this.bibItems = data;
         this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
@@ -114,6 +118,7 @@ depending on param, api queries are sent
 //load default content on init
   @ViewChild('ngcarousel', { static: true }) ngCarousel!: NgbCarousel;
   ngOnInit() {
+    //Gets the first 4 objects
     this.api.getRandomItems().subscribe((data)=>{
       this.bibItems = data;
       this.bibItem1 = this.bibItems._embedded.searchResult._embedded.objects[0]._embedded.indexableObject;
