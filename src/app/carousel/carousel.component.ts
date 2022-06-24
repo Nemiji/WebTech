@@ -81,7 +81,7 @@ depending on param, api queries are sent
         this.bibItem4 = this.bibItems._embedded.searchResult._embedded.objects[3]._embedded.indexableObject;
         this.bibItem5 = this.bibItems._embedded.searchResult._embedded.objects[4]._embedded.indexableObject;
         this.bibItem6 = this.bibItems._embedded.searchResult._embedded.objects[5]._embedded.indexableObject;
-        this.currentMode = [this.bibItem3, this.bibItem4, this.bibItem5, this.bibItem6];
+        this.currentMode = [this.bibItem3, this.bibItem4, this.bibItem1, this.bibItem2];
       })
       
     }
